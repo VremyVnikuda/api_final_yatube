@@ -39,7 +39,7 @@ class Post(models.Model):
     """Запись
 
     Атрибуты:
-        - author (ForeignKey): Ссылка на модель User, автора записи.
+        - author (ForeignKey): Ссылка на модель User (автора записи).
         - text (TextField): Текст записи.
         - pub_date (DateTimeField): Дата и время публикации записи.
         - image (ImageField): Изображение, (может быть пустым).
@@ -87,7 +87,7 @@ class Comment(models.Model):
     """Комментарий
 
     Атрибуты:
-        - author (ForeignKey): Ссылка на модель User, автора записи.
+        - author (ForeignKey): Ссылка на модель User (автора записи).
         - text (TextField): Текст комментария.
         - created (DateTimeField): Дата и время публикации комментария.
         - post (ForeignKey): Ссылка на модель Post, к которой относится
@@ -155,4 +155,4 @@ class Follow(models.Model):
         ]
 
     def __str__(self):
-        return f'{self.user} подписчик автора - {self.following}'
+        return f'{self.user} подписчик - {self.following}'
