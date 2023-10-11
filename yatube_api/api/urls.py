@@ -3,29 +3,29 @@ from rest_framework import routers
 
 import api.views as vs
 
-router = routers.DefaultRouter()
-router.register(
+router_v1 = routers.DefaultRouter()
+router_v1.register(
     'groups',
     vs.GroupViewSet,
     basename='groups',
 )
-router.register(
+router_v1.register(
     'posts',
     vs.PostViewSet,
     basename='posts',
 )
-router.register(
+router_v1.register(
     r'posts/(?P<post_id>\d+)/comments',
     vs.CommentViewSet,
     basename='comments',
 )
-router.register(
+router_v1.register(
     'follow',
     vs.FollowViewSet,
     basename='follow',
 )
 
 urlpatterns = [
-    path('v1/', include(router.urls)),
+    path('v1/', include(router_v1.urls)),
     path('v1/', include('djoser.urls.jwt')),
 ]
